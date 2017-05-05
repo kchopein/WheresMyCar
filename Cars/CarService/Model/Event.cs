@@ -11,7 +11,7 @@ namespace CarService.Model
         {
             get
             {
-                return JsonConvert.DeserializeObject<T>(this.SerializedPayload);
+                return this.SerializedPayload != null ? JsonConvert.DeserializeObject<T>(this.SerializedPayload) : default(T);
             }
             private set { JsonConvert.SerializeObject(value); }
         }

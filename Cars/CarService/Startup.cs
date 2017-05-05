@@ -27,6 +27,7 @@ namespace CarService
             // Add framework services.
             services.AddMvc();
 
+            // Add MongoDB and Context:
             services.Configure<MongoSettings>(options =>
             {
                 options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
@@ -34,6 +35,7 @@ namespace CarService
             });
             services.AddScoped<CarContext>();
 
+            services.AddTransient<ICarRepository, CarRespository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

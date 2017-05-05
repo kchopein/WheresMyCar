@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarService.DB
 {
-    interface ICarRepository
+    public interface ICarRepository
     {
         Task<IEnumerable<Car>> GetAllCarsAsync();
         Task<Car> GetCarAsync(Guid id);
