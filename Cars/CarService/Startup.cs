@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CarService.DB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 
 namespace CarService
 {
@@ -31,8 +27,13 @@ namespace CarService
             // Add framework services.
             services.AddMvc();
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=WheresMyCar;Trusted_Connection=True;";
-            services.AddDbContext<CarsDbContext>(options => options.UseSqlServer(connection));
+            services.Configure<MongoSettings>(options =>
+            {
+                options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                options.Database = Configuration.GetSection("MongoConnection:Database").Value;
+            });
+            services.AddScoped<CarContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
