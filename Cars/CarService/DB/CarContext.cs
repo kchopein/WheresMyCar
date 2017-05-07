@@ -15,11 +15,11 @@ namespace CarService.DB
                 _database = client.GetDatabase(settings.Value.Database);
         }
 
-        public IMongoCollection<Car> Cars
+        public IMongoCollection<CarEventStore> CarEventStores
         {
             get
             {
-                return _database.GetCollection<Car>("Car");
+                return _database.GetCollection<CarEventStore>("Car");
             }
         }
     }

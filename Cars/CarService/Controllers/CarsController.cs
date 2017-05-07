@@ -11,27 +11,29 @@ namespace CarService.Controllers
     [Route("api/[Controller]")]
     public class CarsController : Controller
     {
-        readonly ICarRepository carRepository;
+        readonly ICarEventStoreRepository carEventStoreRepository;
 
-        public CarsController(ICarRepository carRepository)
+        public CarsController(ICarEventStoreRepository carEventStoreRepository)
         {
-            this.carRepository = carRepository;
+            this.carEventStoreRepository = carEventStoreRepository;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllCars()
         {
-            IEnumerable<Car> cars = await carRepository.GetAllCarsAsync();
-            var carDtos = cars.Select(c => new CarDto { Id = c.Id, Name = c.Name, LicenseNumber = c.LicenseNumber });
-            return base.Ok(carDtos);
+            IEnumerable<CarEventStore> carEventStores = await carEventStoreRepository.GetAllCarEventStoresAsync();
+
+            var cars = carEventStores.Select(ces => ces.GetCar());
+
+            return base.Ok(cars);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCar([FromBody]CarDto carDto)
+        public async Task<IActionResult> AddCar([FromBody]Car carDto)
         {
-            var car = new Car(carDto.Name, carDto.LicenseNumber);
-            await this.carRepository.AddCarAsync(car);
-            return Ok(car);
+            var careventStore = new CarEventStore(carDto.Name, carDto.LicenseNumber);
+            await this.carEventStoreRepository.AddCarEventStoreAsync(careventStore);
+            return Ok(careventStore.GetCar());
         }
 
         public class CarDto

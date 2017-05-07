@@ -35,7 +35,7 @@ namespace CarService
             });
             services.AddScoped<CarContext>();
 
-            services.AddTransient<ICarRepository, CarRespository>();
+            services.AddTransient<ICarEventStoreRepository, CarEventStoreRespository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

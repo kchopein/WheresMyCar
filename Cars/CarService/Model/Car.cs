@@ -1,24 +1,21 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace CarService.Model
 {
     public class Car
     {
-        [BsonId]
-        public Guid Id { get; protected set; } = Guid.NewGuid();
-        public ICollection<CarCreatedEvent> Events { get; private set; } = new List<CarCreatedEvent>();
-        public string Name { get; private set; }
-        public string LicenseNumber { get; private set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string LicenseNumber { get; set; }
+        public CarStatus Status { get; set; }
+        public Location Location { get; set; }
+    }
 
-        public Car(string name, string licenseNumber)
-        {
-            this.Name = name;
-            this.LicenseNumber = licenseNumber;
-            var carCreatedEvent = new CarCreatedEvent(this.Id, name, licenseNumber);
-            this.Events.Add(carCreatedEvent);
-        }
+    public enum CarStatus
+    {
+        Default = 0,
+        Parked = 1,
+        Moving = 2
     }
 }

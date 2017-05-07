@@ -1,39 +1,20 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
 namespace CarService.Model
 {
-    public abstract class Event<T> : Event
-    {
-        [NotMapped]
-        public T Payload
-        {
-            get
-            {
-                return this.SerializedPayload != null ? JsonConvert.DeserializeObject<T>(this.SerializedPayload) : default(T);
-            }
-            private set { JsonConvert.SerializeObject(value); }
-        }
-
-        protected Event(Guid entityId, T eventPayload) : base(entityId)
-        {
-            Payload = eventPayload;
-        }
-    }
-
-    public abstract class Event
+    public abstract class Event<TEntity, TPayload> : IEvent<TEntity>
     {
         public Guid Id { get; protected set; } = Guid.NewGuid();
         public Guid EntityId { get; protected set; }
-        public DateTime EventTime { get; protected set; }
-        public string SerializedPayload { get; protected set; }
+        public DateTime EventTime { get; protected set; } = DateTime.UtcNow;
 
-        protected Event(Guid entityId)
+        public TPayload Payload { get; protected set; }
+        protected Event(Guid entityId, TPayload eventPayload) 
         {
+            Payload = eventPayload;
             EntityId = entityId;
-            this.EventTime = DateTime.UtcNow;
         }
-    }
 
+        public abstract TEntity ApplyTo(TEntity entity);
+    }
 }
