@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CarService.Controllers
+namespace CarService.Controllers.CarDtos
 {
     public class TakeRequestDto
     {

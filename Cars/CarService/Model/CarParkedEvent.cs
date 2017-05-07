@@ -1,11 +1,11 @@
-﻿using MongoDB.Bson.Serialization;
+﻿using EventSourcingLibrary;
 using System;
 
 namespace CarService.Model
 {
     public class CarParkedEvent : Event<Car, Location>
     {
-        public CarParkedEvent(Guid entityId, Location location) 
+        public CarParkedEvent(Guid entityId, Location location)
             : base(entityId, location)
         {
         }

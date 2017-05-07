@@ -1,20 +1,25 @@
-﻿using System;
+﻿using EventSourcingLibrary;
+using System;
 
 namespace CarService.Model
 {
     public class CarEventStore : EventStore<Car>
     {
-
         public CarEventStore(string name, string licenseNumber)
         {
             var carCreatedEvent = new CarCreatedEvent(this.Id, name, licenseNumber);
             Events.Add(carCreatedEvent);
         }
 
+        /// <summary>
+        /// Parks the car at the specified location.
+        /// </summary>
+        /// <param name="location">The new location of the car.</param>
+        /// <exception cref="System.InvalidOperationException">The car is already parked and can't be parked again.</exception>
         public void Park(Location location)
         {
             var car = this.GetEntity();
-            if(car.Status == CarStatus.Parked)
+            if (car.Status == CarStatus.Parked)
             {
                 throw new InvalidOperationException("The car is already parked and can't be parked again.");
             }
@@ -23,6 +28,11 @@ namespace CarService.Model
             this.Events.Add(carParkedEvent);
         }
 
+        /// <summary>
+        /// The car is taken by the driver whose id is specified.
+        /// </summary>
+        /// <param name="driverId">The driver identifier.</param>
+        /// <exception cref="System.InvalidOperationException">The car is already took and can't be taken again.</exception>
         public void Take(Guid driverId)
         {
             var car = this.GetEntity();
@@ -35,7 +45,5 @@ namespace CarService.Model
             var carTookEvent = new CarTookEvent(this.Id, eventPayload);
             this.Events.Add(carTookEvent);
         }
-
-
     }
 }

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using CarService.Model;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CarService.Model;
-using MongoDB.Driver;
-using MongoDB.Bson;
 
 namespace CarService.DB
 {
     public class CarEventStoreRespository : ICarEventStoreRepository
     {
-        readonly CarContext context;
+        private readonly CarContext context;
 
         public CarEventStoreRespository(CarContext context)
         {
@@ -46,6 +46,5 @@ namespace CarService.DB
         {
             return await context.CarEventStores.ReplaceOneAsync(c => c.Id == id, item, new UpdateOptions { IsUpsert = true });
         }
-
     }
 }

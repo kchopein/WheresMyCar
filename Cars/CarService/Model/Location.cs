@@ -1,5 +1,4 @@
-﻿using MongoDB.Bson.Serialization;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
 
 namespace CarService.Model
@@ -8,6 +7,7 @@ namespace CarService.Model
     {
         [BsonId]
         public Guid Id { get; private set; } = Guid.NewGuid();
+
         public string Address { get; private set; }
 
         public Location(string address)

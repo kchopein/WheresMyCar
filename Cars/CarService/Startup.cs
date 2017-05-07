@@ -1,12 +1,11 @@
-﻿using System;
-using CarService.DB;
+﻿using CarService.DB;
+using CarService.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson.Serialization;
-using CarService.Model;
 
 namespace CarService
 {
@@ -41,12 +40,11 @@ namespace CarService
             services.AddTransient<ICarEventStoreRepository, CarEventStoreRespository>();
 
             RegisterMongoMaps();
-
         }
 
         private void RegisterMongoMaps()
         {
-            //TODO: There's got to be a better way to do this... 
+            //TODO: There's got to be a better way to do this...
 
             if (!BsonClassMap.IsClassMapRegistered(typeof(CarCreatedEvent)))
                 BsonClassMap.RegisterClassMap<CarCreatedEvent>();

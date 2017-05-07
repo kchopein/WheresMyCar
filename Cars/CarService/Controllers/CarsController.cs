@@ -1,4 +1,5 @@
-﻿using CarService.DB;
+﻿using CarService.Controllers.CarDtos;
+using CarService.DB;
 using CarService.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,7 +12,7 @@ namespace CarService.Controllers
     [Route("api/[Controller]")]
     public class CarsController : Controller
     {
-        readonly ICarEventStoreRepository carEventStoreRepository;
+        private readonly ICarEventStoreRepository carEventStoreRepository;
 
         public CarsController(ICarEventStoreRepository carEventStoreRepository)
         {
@@ -42,7 +43,7 @@ namespace CarService.Controllers
         {
             var carEventStore = await this.carEventStoreRepository.GetCarEventStoreAsync(carId);
 
-            if(carEventStore == null)
+            if (carEventStore == null)
             {
                 return NotFound();
             }
@@ -80,13 +81,12 @@ namespace CarService.Controllers
             }
             catch (InvalidOperationException ex)
             {
-                return BadRequest(ex.Message);   
+                return BadRequest(ex.Message);
             }
-            
+
             await carEventStoreRepository.UpdateCarEventStoreAsync(carId, carEventStore);
 
             return Ok(carEventStore.GetEntity());
-
         }
 
         public class CarDto

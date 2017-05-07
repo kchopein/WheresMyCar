@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cars", "Cars", "{044FAA52-6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarService", "Cars\CarService\CarService.csproj", "{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcingLibrary", "EventSourcingLibrary\EventSourcingLibrary.csproj", "{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

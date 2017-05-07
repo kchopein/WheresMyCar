@@ -1,6 +1,4 @@
-﻿using MongoDB.Bson.Serialization;
-
-namespace CarService.Model
+﻿namespace CarService.Model
 {
     public class CarCreatedPayload
     {

@@ -1,14 +1,13 @@
-﻿using MongoDB.Bson.Serialization;
+﻿using EventSourcingLibrary;
 using System;
 
 namespace CarService.Model
 {
     public class CarCreatedEvent : Event<Car, CarCreatedPayload>
     {
-        public CarCreatedEvent(Guid entityId, string name, string licenseNumber) 
-            : base (entityId, new CarCreatedPayload(name, licenseNumber))
+        public CarCreatedEvent(Guid entityId, string name, string licenseNumber)
+            : base(entityId, new CarCreatedPayload(name, licenseNumber))
         {
-
         }
 
         public override Car ApplyTo(Car entity)

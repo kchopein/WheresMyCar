@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventSourcingLibrary;
+using System;
 
 namespace CarService.Model
 {
