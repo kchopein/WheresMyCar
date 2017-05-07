@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cars", "Cars", "{044FAA52-6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarService", "Cars\CarService\CarService.csproj", "{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarServiceTests", "Cars\CarServiceTests\CarServiceTests.csproj", "{47F2AFB4-6842-4AC1-8588-10E8D498495A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,16 +17,11 @@ Global
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47F2AFB4-6842-4AC1-8588-10E8D498495A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47F2AFB4-6842-4AC1-8588-10E8D498495A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47F2AFB4-6842-4AC1-8588-10E8D498495A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47F2AFB4-6842-4AC1-8588-10E8D498495A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F} = {044FAA52-6571-435B-A6DE-59F4B7153628}
-		{47F2AFB4-6842-4AC1-8588-10E8D498495A} = {044FAA52-6571-435B-A6DE-59F4B7153628}
 	EndGlobalSection
 EndGlobal

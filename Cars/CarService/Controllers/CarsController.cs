@@ -23,7 +23,7 @@ namespace CarService.Controllers
         {
             IEnumerable<CarEventStore> carEventStores = await carEventStoreRepository.GetAllCarEventStoresAsync();
 
-            var cars = carEventStores.Select(ces => ces.GetCar());
+            var cars = carEventStores.Select(ces => ces.GetEntity());
 
             return base.Ok(cars);
         }
@@ -33,7 +33,7 @@ namespace CarService.Controllers
         {
             var careventStore = new CarEventStore(carDto.Name, carDto.LicenseNumber);
             await this.carEventStoreRepository.AddCarEventStoreAsync(careventStore);
-            return Ok(careventStore.GetCar());
+            return Ok(careventStore.GetEntity());
         }
 
         [HttpPost]
