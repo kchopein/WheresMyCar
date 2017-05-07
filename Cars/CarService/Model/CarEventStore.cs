@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ namespace CarService.Model
     public class CarEventStore
     {
         [BsonId]
-        public Guid Id { get; protected set; } = Guid.NewGuid();
+        public Guid Id { get; private set; } = Guid.NewGuid();
         public IList<IEvent<Car>> Events { get; private set; } = new List<IEvent<Car>>();
 
         public CarEventStore(string name, string licenseNumber)

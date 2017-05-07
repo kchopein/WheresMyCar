@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization;
+using System;
 
 namespace CarService.Model
 {

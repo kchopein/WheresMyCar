@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization;
+using System;
 
 namespace CarService.Model
 {
@@ -14,6 +15,7 @@ namespace CarService.Model
         {
             entity.Name = this.Payload.Name;
             entity.LicenseNumber = this.Payload.LicenseNumber;
+            entity.Id = this.EntityId;
             return entity;
         }
     }

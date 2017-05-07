@@ -36,6 +36,24 @@ namespace CarService.Controllers
             return Ok(careventStore.GetCar());
         }
 
+        [HttpPost]
+        [Route("{carId}/parkRequest")]
+        public async Task<IActionResult> ParkCar([FromRoute] Guid carId, [FromBody] ParkRequestDto parkRequest)
+        {
+            var carEventStore = await this.carEventStoreRepository.GetCarEventStoreAsync(carId);
+
+            if(carEventStore == null)
+            {
+                return NotFound();
+            }
+
+            var location = new Location(parkRequest.Address);
+            carEventStore.Park(location);
+            await carEventStoreRepository.UpdateCarEventStoreAsync(carEventStore.Id, carEventStore);
+
+            return Ok();
+        }
+
         public class CarDto
         {
             public Guid Id { get; set; }
