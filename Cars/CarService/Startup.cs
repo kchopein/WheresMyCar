@@ -46,6 +46,8 @@ namespace CarService
 
         private void RegisterMongoMaps()
         {
+            //TODO: There's got to be a better way to do this... 
+
             if (!BsonClassMap.IsClassMapRegistered(typeof(CarCreatedEvent)))
                 BsonClassMap.RegisterClassMap<CarCreatedEvent>();
             if (!BsonClassMap.IsClassMapRegistered(typeof(CarCreatedPayload)))
@@ -56,6 +58,10 @@ namespace CarService
                 BsonClassMap.RegisterClassMap<CarParkedEvent>();
             if (!BsonClassMap.IsClassMapRegistered(typeof(Location)))
                 BsonClassMap.RegisterClassMap<Location>();
+            if (!BsonClassMap.IsClassMapRegistered(typeof(CarTookEvent)))
+                BsonClassMap.RegisterClassMap<CarTookEvent>();
+            if (!BsonClassMap.IsClassMapRegistered(typeof(CarTookEventPayload)))
+                BsonClassMap.RegisterClassMap<CarTookEventPayload>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

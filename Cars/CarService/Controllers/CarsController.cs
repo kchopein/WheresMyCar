@@ -48,10 +48,45 @@ namespace CarService.Controllers
             }
 
             var location = new Location(parkRequest.Address);
-            carEventStore.Park(location);
-            await carEventStoreRepository.UpdateCarEventStoreAsync(carEventStore.Id, carEventStore);
 
-            return Ok();
+            try
+            {
+                carEventStore.Park(location);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            await carEventStoreRepository.UpdateCarEventStoreAsync(carId, carEventStore);
+
+            return Ok(carEventStore.GetEntity());
+        }
+
+        [HttpPost]
+        [Route("{carId}/takeRequest")]
+        public async Task<IActionResult> TakeCar([FromRoute] Guid carId, [FromBody] TakeRequestDto takeRequest)
+        {
+            var carEventStore = await this.carEventStoreRepository.GetCarEventStoreAsync(carId);
+
+            if (carEventStore == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                carEventStore.Take(takeRequest.DriverId);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);   
+            }
+            
+            await carEventStoreRepository.UpdateCarEventStoreAsync(carId, carEventStore);
+
+            return Ok(carEventStore.GetEntity());
+
         }
 
         public class CarDto
