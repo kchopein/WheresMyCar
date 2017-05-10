@@ -1,7 +1,7 @@
-﻿using EventSourcingLibrary;
-using System;
+﻿using System;
+using WheresMyCar.EventSourcingLibrary;
 
-namespace CarService.Model
+namespace WheresMyCar.CarService.Model
 {
     public class CarCreatedEvent : Event<Car, CarCreatedPayload>
     {

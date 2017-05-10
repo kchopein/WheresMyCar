@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
 
-namespace CarService.Model
+namespace WheresMyCar.CarService.Model
 {
     public class Location
     {

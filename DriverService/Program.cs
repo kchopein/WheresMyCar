@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 
-namespace WheresMyCar.CarService
+namespace WheresMyCar.DriverService
 {
     public class Program
     {

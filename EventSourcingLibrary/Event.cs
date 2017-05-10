@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EventSourcingLibrary
+namespace WheresMyCar.EventSourcingLibrary
 {
     /// <summary>
     /// An base class for the events to be stored in the event store.

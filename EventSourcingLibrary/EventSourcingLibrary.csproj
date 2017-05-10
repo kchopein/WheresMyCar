@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <RootNamespace>WheresMyCar.EventSourcingLibrary</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

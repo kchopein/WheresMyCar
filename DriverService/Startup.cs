@@ -3,12 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MongoDB.Bson.Serialization;
-using WheresMyCar.CarService.DB;
-using WheresMyCar.CarService.Model;
+using WheresMyCar.DriverService.DB;
 using WheresMyCar.MongoDBLibrary;
 
-namespace WheresMyCar.CarService
+namespace WheresMyCar.DriverService
 {
     public class Startup
     {
@@ -36,31 +34,8 @@ namespace WheresMyCar.CarService
                 options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
                 options.Database = Configuration.GetSection("MongoConnection:Database").Value;
             });
-            services.AddScoped<CarContext>();
 
-            services.AddTransient<ICarEventStoreRepository, CarEventStoreRespository>();
-
-            RegisterMongoMaps();
-        }
-
-        private void RegisterMongoMaps()
-        {
-            //TODO: There's got to be a better way to do this...
-
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CarCreatedEvent)))
-                BsonClassMap.RegisterClassMap<CarCreatedEvent>();
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CarCreatedPayload)))
-                BsonClassMap.RegisterClassMap<CarCreatedPayload>();
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CarEventStore)))
-                BsonClassMap.RegisterClassMap<CarEventStore>();
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CarParkedEvent)))
-                BsonClassMap.RegisterClassMap<CarParkedEvent>();
-            if (!BsonClassMap.IsClassMapRegistered(typeof(Location)))
-                BsonClassMap.RegisterClassMap<Location>();
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CarTookEvent)))
-                BsonClassMap.RegisterClassMap<CarTookEvent>();
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CarTookEventPayload)))
-                BsonClassMap.RegisterClassMap<CarTookEventPayload>();
+            services.AddScoped<DriverContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,4 @@
-﻿namespace CarService.Model
+﻿namespace WheresMyCar.CarService.Model
 {
     public class CarCreatedPayload
     {

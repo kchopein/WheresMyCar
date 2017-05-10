@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EventSourcingLibrary
+namespace WheresMyCar.EventSourcingLibrary
 {
     /// <summary>
     /// Event store for a type of entity. It keeps a list of events and provides the entity by instantiating it and

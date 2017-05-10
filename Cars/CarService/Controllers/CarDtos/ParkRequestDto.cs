@@ -1,4 +1,4 @@
-﻿namespace CarService.Controllers.CarDtos
+﻿namespace WheresMyCar.CarService.Controllers.CarDtos
 {
     public class ParkRequestDto
     {

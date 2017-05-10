@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarService", "Cars\CarServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcingLibrary", "EventSourcingLibrary\EventSourcingLibrary.csproj", "{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Drivers", "Drivers", "{DAB29051-16F6-4B23-849A-C3D857D1AA3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverService", "DriverService\DriverService.csproj", "{DB5677D0-D675-4A4D-8606-37C42818437E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBLibrary", "MongoDBLibrary\MongoDBLibrary.csproj", "{BF603AA8-E51E-47BB-9B53-2885E7379252}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +29,20 @@ Global
 		{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AABBE3FE-1EDA-405D-9DDD-06044C77EB61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5677D0-D675-4A4D-8606-37C42818437E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5677D0-D675-4A4D-8606-37C42818437E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5677D0-D675-4A4D-8606-37C42818437E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5677D0-D675-4A4D-8606-37C42818437E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF603AA8-E51E-47BB-9B53-2885E7379252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF603AA8-E51E-47BB-9B53-2885E7379252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF603AA8-E51E-47BB-9B53-2885E7379252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF603AA8-E51E-47BB-9B53-2885E7379252}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F} = {044FAA52-6571-435B-A6DE-59F4B7153628}
+		{DB5677D0-D675-4A4D-8606-37C42818437E} = {DAB29051-16F6-4B23-849A-C3D857D1AA3B}
 	EndGlobalSection
 EndGlobal

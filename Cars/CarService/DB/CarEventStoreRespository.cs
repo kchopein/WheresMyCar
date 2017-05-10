@@ -1,11 +1,11 @@
-﻿using CarService.Model;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using WheresMyCar.CarService.Model;
 
-namespace CarService.DB
+namespace WheresMyCar.CarService.DB
 {
     public class CarEventStoreRespository : ICarEventStoreRepository
     {

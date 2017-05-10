@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EventSourcingLibrary
+namespace WheresMyCar.EventSourcingLibrary
 {
     /// <summary>
     /// This is how an event for a given entity type should look like.

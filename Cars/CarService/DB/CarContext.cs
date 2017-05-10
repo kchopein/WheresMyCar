@@ -1,25 +1,21 @@
-﻿using CarService.Model;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using WheresMyCar.CarService.Model;
+using WheresMyCar.MongoDBLibrary;
 
-namespace CarService.DB
+namespace WheresMyCar.CarService.DB
 {
-    public class CarContext
+    public class CarContext : MongoDBContext
     {
-        private readonly IMongoDatabase _database = null;
-
-        public CarContext(IOptions<MongoSettings> settings)
+        public CarContext(IOptions<MongoSettings> settings) : base(settings)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            if (client != null)
-                _database = client.GetDatabase(settings.Value.Database);
         }
 
         public IMongoCollection<CarEventStore> CarEventStores
         {
             get
             {
-                return _database.GetCollection<CarEventStore>("Car");
+                return Database.GetCollection<CarEventStore>("Car");
             }
         }
     }

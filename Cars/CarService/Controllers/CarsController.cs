@@ -1,13 +1,13 @@
-﻿using CarService.Controllers.CarDtos;
-using CarService.DB;
-using CarService.Model;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WheresMyCar.CarService.Controllers.CarDtos;
+using WheresMyCar.CarService.DB;
+using WheresMyCar.CarService.Model;
 
-namespace CarService.Controllers
+namespace WheresMyCar.CarService.Controllers
 {
     [Route("api/[Controller]")]
     public class CarsController : Controller
