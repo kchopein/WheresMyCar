@@ -14,7 +14,10 @@ namespace WheresMyCar.EventSourcingLibrary
         [BsonId]
         public Guid Id { get; private set; } = Guid.NewGuid();
 
-        public IList<IEvent<TEntity>> Events { get; private set; } = new List<IEvent<TEntity>>();
+        protected IList<IEvent<TEntity>> EventsList { get; private set; } = new List<IEvent<TEntity>>();
+
+        [BsonIgnore]
+        public IEnumerable<IEvent<TEntity>> Events => EventsList;
 
         /// <summary>
         /// Returns an entity built by applying all the sequence of events in the store.
@@ -23,7 +26,7 @@ namespace WheresMyCar.EventSourcingLibrary
         public TEntity GetEntity()
         {
             var entity = new TEntity();
-            foreach (IEvent<TEntity> e in Events)
+            foreach (IEvent<TEntity> e in EventsList)
             {
                 entity = e.ApplyTo(entity);
             }

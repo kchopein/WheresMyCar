@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverService", "DriverServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBLibrary", "MongoDBLibrary\MongoDBLibrary.csproj", "{BF603AA8-E51E-47BB-9B53-2885E7379252}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverServiceTests", "DriverServiceTests\DriverServiceTests.csproj", "{7FE97C87-451D-46FB-8B9E-B62318A31261}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{BF603AA8-E51E-47BB-9B53-2885E7379252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF603AA8-E51E-47BB-9B53-2885E7379252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF603AA8-E51E-47BB-9B53-2885E7379252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE97C87-451D-46FB-8B9E-B62318A31261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE97C87-451D-46FB-8B9E-B62318A31261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE97C87-451D-46FB-8B9E-B62318A31261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE97C87-451D-46FB-8B9E-B62318A31261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1C6D5DA9-2A1A-4284-9D3D-86DC6607203F} = {044FAA52-6571-435B-A6DE-59F4B7153628}
 		{DB5677D0-D675-4A4D-8606-37C42818437E} = {DAB29051-16F6-4B23-849A-C3D857D1AA3B}
+		{7FE97C87-451D-46FB-8B9E-B62318A31261} = {DAB29051-16F6-4B23-849A-C3D857D1AA3B}
 	EndGlobalSection
 EndGlobal

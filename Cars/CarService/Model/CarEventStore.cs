@@ -8,7 +8,7 @@ namespace WheresMyCar.CarService.Model
         public CarEventStore(string name, string licenseNumber)
         {
             var carCreatedEvent = new CarCreatedEvent(this.Id, name, licenseNumber);
-            Events.Add(carCreatedEvent);
+            EventsList.Add(carCreatedEvent);
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace WheresMyCar.CarService.Model
             }
 
             var carParkedEvent = new CarParkedEvent(this.Id, location);
-            this.Events.Add(carParkedEvent);
+            this.EventsList.Add(carParkedEvent);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace WheresMyCar.CarService.Model
 
             var eventPayload = new CarTookEventPayload(driverId);
             var carTookEvent = new CarTookEvent(this.Id, eventPayload);
-            this.Events.Add(carTookEvent);
+            this.EventsList.Add(carTookEvent);
         }
     }
 }
